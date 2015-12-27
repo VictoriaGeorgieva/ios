@@ -6,7 +6,7 @@ iOS 7.0 or later
 
 #Installation - manually
 
-Just add to your project RatingStar.swift, RatingBarViewController.swift and needed icons from Assets
+Just add to your project RatingStar.swift, RatingBarView.swift and needed icons from Assets
 
 #Usage
 
