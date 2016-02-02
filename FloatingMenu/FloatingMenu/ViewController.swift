@@ -48,7 +48,7 @@ class ViewController: UIViewController, FloatingMenuControllerDelegate {
         
         if #available(iOS 8.0, *) {
             self.definesPresentationContext = true
-            controller.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.5)
+            controller.view.backgroundColor = UIColor.clearColor()
             controller.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
         }
         
