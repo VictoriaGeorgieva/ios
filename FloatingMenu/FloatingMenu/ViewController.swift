@@ -20,6 +20,10 @@ class ViewController: UIViewController, FloatingMenuControllerDelegate {
     }
     
     override func viewDidAppear(animated: Bool) {
+        initFloatingButton()
+    }
+    
+    func initFloatingButton(){
         let bounds = UIScreen.mainScreen().bounds
         let frame_main = CGRectMake(bounds.size.width-80, bounds.size.height-80, 50, 50)
         
@@ -40,6 +44,12 @@ class ViewController: UIViewController, FloatingMenuControllerDelegate {
             first_option.origin.y -= 60
             controller.optionButtons.append(FloatingButton(image: UIImage(named: imagesNames[i]), frame: first_option, title: optionsTitles[i]))
             i++
+        }
+        
+        if #available(iOS 8.0, *) {
+            self.definesPresentationContext = true
+            controller.view.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.5)
+            controller.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
         }
         
         controller.delegate = self
@@ -65,6 +75,12 @@ class ViewController: UIViewController, FloatingMenuControllerDelegate {
         }
         
         controller.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func floatingMenuControllerDidCancel(controller: FloatingMenuController) {
+        if #available(iOS 8.0, *) {
+            initFloatingButton()
+        }
     }
 
     override func didReceiveMemoryWarning() {
